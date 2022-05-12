@@ -127,6 +127,8 @@ $(window).on("scroll", function () {
 
   if (c < currentScrollTop && a > 210) {
     header.addClass("hide");
+    header.removeClass("hide");
+
   } else if (c > currentScrollTop && !(a <= 210)) {
     header.removeClass("hide");
   }

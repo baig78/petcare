@@ -37,6 +37,10 @@
             <a class="button-circle button-circle-sm button-circle-black" href="#"><i class="fa-solid fa-arrow-up"></i></i></a>
         </div>
         <!-- end Scroll to Top -->
+        <div class="call-btn">
+            <a class="button-circle button-circle-sm button-circle-black" href="tel:+19727829293"><i class="fa-solid fa-phone"></i></a>
+        </div>
+        <!-- end Scroll to Top -->
 
         <!-- Header -->
         <div class="header dark fixed absolute-light" style="background-image: linear-gradient(to left, #070080,#096d79, #00d4ff);">
@@ -100,6 +104,7 @@
                 </div>
                 <!-- end container -->
             </div>
+            <h1 class="h-call" style="margin-top: 150px;">Walk-In Clinic in Irving, Texas</h1>
         </div>
         <!-- end Hero section -->
 
@@ -154,7 +159,7 @@
                 <div class="text-center margin-bottom-70">
                     <h2 class="uppercase letter-spacing-2">welcome to my village pet clinic</h2>
                     <h5 class="uppercase letter-spacing-2">Your Veterinarian in Irving, TX 75060 </h5>
-                    <h5 class="uppercase letter-spacing-2">Call us at +1-972-782-9293</h5>
+                    <h5 class="uppercase letter-spacing-2"> <span> Call us at</span> <span>+1-972-782-9293</span></h5>
                     <p>Our veterinary clinic has everything your pet requires to keep happy and healthy. We want to be there for you every step of the journey, from puppy and kitten vaccines to microchipping and senior pet care. We offer emergency pet care,
                         orthopaedic, and in-house diagnostic testing, as well as the finest quality medical and dental care for animals. Our facilities are state-of-the-art, with digital X-ray capability and a fully equipped surgical suite for spay and
                         neuter surgeries and other procedures.</p>
@@ -225,7 +230,7 @@
         <!-- end Services section -->
 
         <!-- Contact Info, Form -->
-        <div class=" padding-top-0" id="contact">
+        <div class="section-lg padding-top-0" id="contact">
             <div class="container">
                 <div class="text-center margin-bottom-70">
                     <h2 class="uppercase letter-spacing-2">contact us</h2>
@@ -233,7 +238,7 @@
 
                 </div>
                 <div>
-                    <div class="container">
+                    <div class="cont-form">
                         <div class="row">
                             <div class="col-12 col-lg-5">
                                 <div class="row col-spacing-20">
@@ -258,8 +263,9 @@
                                 </div>
                                 <!-- end row(inner) -->
                             </div>
+
                             <div class="col-12 col-lg-7 text-lg-right">
-                                <form method="post" id="contactform">
+                                <form method="post" action="" class="myform" id="contactform">
                                     <div class="form-row">
                                         <div class="col-12 col-sm-6">
                                             <input type="text" id="name" name="name" placeholder="Name" required>
@@ -278,17 +284,46 @@
                                     <span id="error">Something went wrong, Please try again!</span>
                                 </div>
                             </div>
+
                         </div>
+                        <script>
+                            $(document).ready(function() {
+                                $('.myform').on('submit', function() {
+
+                                    // Add text 'loading...' right after clicking on the submit button. 
+                                    // $('.output_message').text('Loading...'); 
+
+                                    var form = $(this);
+                                    $.ajax({
+                                        url: "email.php",
+                                        method: form.attr('method'),
+                                        data: form.serialize(),
+                                        success: function(result) {
+                                            if (result == 'success') {
+                                                //  $('.output_message').text('Message Sent!');
+                                                alert("s");
+                                            } else {
+                                                //  $('.output_message').text('Error Sending email!');
+                                            }
+                                        }
+                                    });
+
+                                    // Prevents default submission of the form after clicking on the submit button. 
+                                    return false;
+                                });
+                            });
+                        </script>
                         <!-- end row -->
-                        <div class="container">
+                        <div class="map01">
                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3353.663513757326!2d-96.93532548255615!3d32.8011802!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864e8359bfb38dbb%3A0x23c7ac2c0538dcc7!2s1105%20E%20Shady%20Grove%20Rd%2C%20Irving%2C%20TX%2075060%2C%20USA!5e0!3m2!1sen!2sin!4v1650428367262!5m2!1sen!2sin"
-                                width="100%" height="400" style="border: 2px solid #d9d9d9; margin-top: 30px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                width="100%" height="400" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
                     <!-- end container -->
                 </div>
             </div>
         </div>
+
         <!-- end Contact Info, Form -->
 
 
@@ -296,7 +331,7 @@
         <div class="section bg-dark">
             <div class="container">
                 <div class="row col-spacing-40">
-                    <div class="col-12 col-lg-7">
+                    <div class="col-lg-6 col-md-12 col-sm-12">
                         <h6 class="font-weight-medium margin-lg-bottom-20">About us</h6>
                         <p>When you are looking for a veterinary care clinic you should be able to count on superior care and excellent service.. &nbsp; <a class="button-text-2 margin-top-30" href="#about">Read more..</a></p>
 
@@ -316,45 +351,43 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="col-12 col-lg-5">
-                        <div class="row">
-                            <div class="col-6">
-                                <h6 class="font-weight-medium margin-lg-bottom-20">Menu</h6>
-                                <ul class="list-dash font-lg-small">
-                                    <li><a href="#home">Home</a></li>
-                                    <li><a href="#about">About</a></li>
-                                    <li><a href="#services">Services</a></li>
-                                    <li><a href="#contact">Contact</a></li>
-                                </ul>
-                            </div>
-                            <div class="col-6">
-                                <h6 class="font-weight-medium margin-lg-bottom-20">Opening Hours</h6>
-                                <ul class="list-dash font-lg-small">
-                                    <!-- <li><a href="#">Mon : 8:00am - 5:30pm</a></li>
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <h6 class="font-weight-medium margin-lg-bottom-20">Menu</h6>
+                        <ul class="list-dash font-lg-small">
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#services">Services</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <h6 class="font-weight-medium margin-lg-bottom-20">Opening Hours</h6>
+                        <ul class="list-dash font-lg-small">
+                            <!-- <li><a href="#">Mon : 8:00am - 5:30pm</a></li>
                                     <li><a href="#">Tue : 8:00am - 5:30pm</a></li>
                                     <li><a href="#">Wed : 8:00am - 5:30pm</a></li>
                                     <li><a href="#">Thu : 8:00am - 5:30pm</a></li>
                                     <li><a href="#">Fri : 8:00am - 5:30pm</a></li>
                                     <li><a href="#">Sat : 8:00am - 5:30pm</a></li>
                                     <li><a href="#">Sun : 8:00am - 5:30pm</a></li> -->
-                                    <li> <span> Mon </span> <span> :</span> 8:00am <span> - </span> <span> 5:30pm </span> </li>
+                            <li> <span> Mon </span> <span> :</span> 8:00am <span> - </span> <span> 5:30pm </span> </li>
 
-                                    <li> <span> Tue </span>&nbsp; <span>  :</span> 8:00am <span> - </span> <span> 5:30pm </span> </li>
+                            <li> <span> Tue </span>&nbsp; <span>  :</span> 8:00am <span> - </span> <span> 5:30pm </span> </li>
 
-                                    <li> <span> Wed </span> <span> :</span> 8:00am <span> - </span> <span> 5:30pm </span> </li>
+                            <li> <span> Wed </span> <span>  :</span> 8:00am <span> - </span> <span> 5:30pm </span> </li>
 
-                                    <li> <span> Thu </span> &nbsp;<span> :</span> 8:00am <span> - </span> <span> 5:30pm </span> </li>
+                            <li> <span> Thu </span> &nbsp;<span> :</span> 8:00am <span> - </span> <span> 5:30pm </span> </li>
 
-                                    <li> <span> Fri </span>&nbsp; &nbsp; <span> :</span> 8:00am <span> - </span> <span> 5:30pm </span> </li>
+                            <li> <span> Fri </span>&nbsp; &nbsp; <span> :</span> 8:00am <span> - </span> <span> 5:30pm </span> </li>
 
-                                    <li> <span> Sat </span> &nbsp;&nbsp;<span> :</span> 8:00am <span> - </span> <span> 5:30pm </span> </li>
+                            <li> <span> Sat </span> &nbsp;&nbsp;<span> :</span> 8:00am <span> - </span> <span> 3:00pm </span> </li>
 
-                                    <li> <span> Sun </span> &nbsp;<span> :</span> 8:00am <span> - </span> <span> 5:30pm </span> </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- end row(inner) -->
+                            <li> <span> Sun </span> &nbsp;<span> :</span> Closed <span>  </span> <span> </span> </li>
+                        </ul>
                     </div>
+
+                    <!-- end row(inner) -->
+
                 </div>
                 <!-- end row -->
             </div>
